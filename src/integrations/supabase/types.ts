@@ -14,7 +14,119 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      emis: {
+        Row: {
+          created_at: string
+          id: string
+          monthly_amount: number
+          months: number
+          next_due_date: string
+          order_id: string | null
+          paid_months: number
+          principal: number
+          status: string
+          user_phone: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          monthly_amount: number
+          months: number
+          next_due_date?: string
+          order_id?: string | null
+          paid_months?: number
+          principal: number
+          status?: string
+          user_phone: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          monthly_amount?: number
+          months?: number
+          next_due_date?: string
+          order_id?: string | null
+          paid_months?: number
+          principal?: number
+          status?: string
+          user_phone?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "emis_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          created_at: string
+          emi_plan_months: number | null
+          id: string
+          items: Json
+          payment_method: string
+          status: string
+          total: number
+          user_phone: string
+        }
+        Insert: {
+          created_at?: string
+          emi_plan_months?: number | null
+          id?: string
+          items: Json
+          payment_method?: string
+          status?: string
+          total: number
+          user_phone: string
+        }
+        Update: {
+          created_at?: string
+          emi_plan_months?: number | null
+          id?: string
+          items?: Json
+          payment_method?: string
+          status?: string
+          total?: number
+          user_phone?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          price: number
+          stock: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          price: number
+          stock?: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number
+          stock?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
