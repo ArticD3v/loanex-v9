@@ -3,13 +3,14 @@ import { Home, LayoutGrid, ShoppingCart, Wallet, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cart } from "@/lib/cart";
 
-const items = [
+type NavItem = { to: string; label: string; icon: any; exact?: boolean; badge?: boolean };
+const items: NavItem[] = [
   { to: "/app", label: "Home", icon: Home, exact: true },
   { to: "/app/categories", label: "Shop", icon: LayoutGrid },
   { to: "/app/cart", label: "Cart", icon: ShoppingCart, badge: true },
   { to: "/app/emis", label: "EMIs", icon: Wallet },
   { to: "/app/profile", label: "Profile", icon: User },
-] as const;
+];
 
 export function BottomNav() {
   const { pathname } = useLocation();
