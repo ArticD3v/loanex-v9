@@ -10,11 +10,36 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OtpRouteImport } from './routes/otp'
+import { Route as AppRouteRouteImport } from './routes/app/route'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AppProfileRouteImport } from './routes/app/profile'
+import { Route as AppOrdersRouteImport } from './routes/app/orders'
+import { Route as AppEmisRouteImport } from './routes/app/emis'
+import { Route as AppCheckoutRouteImport } from './routes/app/checkout'
+import { Route as AppCategoriesRouteImport } from './routes/app/categories'
+import { Route as AppCartRouteImport } from './routes/app/cart'
+import { Route as AdminUsersRouteImport } from './routes/admin/users'
+import { Route as AdminProductsRouteImport } from './routes/admin/products'
+import { Route as AdminOrdersRouteImport } from './routes/admin/orders'
+import { Route as AdminEmisRouteImport } from './routes/admin/emis'
+import { Route as AppProductIdRouteImport } from './routes/app/product.$id'
 
 const OtpRoute = OtpRouteImport.update({
   id: '/otp',
   path: '/otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRouteRoute = AppRouteRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,30 +47,190 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppOrdersRoute = AppOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppEmisRoute = AppEmisRouteImport.update({
+  id: '/emis',
+  path: '/emis',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppCheckoutRoute = AppCheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppCategoriesRoute = AppCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppCartRoute = AppCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminOrdersRoute = AdminOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminEmisRoute = AdminEmisRouteImport.update({
+  id: '/emis',
+  path: '/emis',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AppProductIdRoute = AppProductIdRouteImport.update({
+  id: '/product/$id',
+  path: '/product/$id',
+  getParentRoute: () => AppRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/app': typeof AppRouteRouteWithChildren
   '/otp': typeof OtpRoute
+  '/admin/emis': typeof AdminEmisRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/app/cart': typeof AppCartRoute
+  '/app/categories': typeof AppCategoriesRoute
+  '/app/checkout': typeof AppCheckoutRoute
+  '/app/emis': typeof AppEmisRoute
+  '/app/orders': typeof AppOrdersRoute
+  '/app/profile': typeof AppProfileRoute
+  '/admin/': typeof AdminIndexRoute
+  '/app/': typeof AppIndexRoute
+  '/app/product/$id': typeof AppProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/otp': typeof OtpRoute
+  '/admin/emis': typeof AdminEmisRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/app/cart': typeof AppCartRoute
+  '/app/categories': typeof AppCategoriesRoute
+  '/app/checkout': typeof AppCheckoutRoute
+  '/app/emis': typeof AppEmisRoute
+  '/app/orders': typeof AppOrdersRoute
+  '/app/profile': typeof AppProfileRoute
+  '/admin': typeof AdminIndexRoute
+  '/app': typeof AppIndexRoute
+  '/app/product/$id': typeof AppProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/app': typeof AppRouteRouteWithChildren
   '/otp': typeof OtpRoute
+  '/admin/emis': typeof AdminEmisRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/app/cart': typeof AppCartRoute
+  '/app/categories': typeof AppCategoriesRoute
+  '/app/checkout': typeof AppCheckoutRoute
+  '/app/emis': typeof AppEmisRoute
+  '/app/orders': typeof AppOrdersRoute
+  '/app/profile': typeof AppProfileRoute
+  '/admin/': typeof AdminIndexRoute
+  '/app/': typeof AppIndexRoute
+  '/app/product/$id': typeof AppProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/otp'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/app'
+    | '/otp'
+    | '/admin/emis'
+    | '/admin/orders'
+    | '/admin/products'
+    | '/admin/users'
+    | '/app/cart'
+    | '/app/categories'
+    | '/app/checkout'
+    | '/app/emis'
+    | '/app/orders'
+    | '/app/profile'
+    | '/admin/'
+    | '/app/'
+    | '/app/product/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/otp'
-  id: '__root__' | '/' | '/otp'
+  to:
+    | '/'
+    | '/otp'
+    | '/admin/emis'
+    | '/admin/orders'
+    | '/admin/products'
+    | '/admin/users'
+    | '/app/cart'
+    | '/app/categories'
+    | '/app/checkout'
+    | '/app/emis'
+    | '/app/orders'
+    | '/app/profile'
+    | '/admin'
+    | '/app'
+    | '/app/product/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/app'
+    | '/otp'
+    | '/admin/emis'
+    | '/admin/orders'
+    | '/admin/products'
+    | '/admin/users'
+    | '/app/cart'
+    | '/app/categories'
+    | '/app/checkout'
+    | '/app/emis'
+    | '/app/orders'
+    | '/app/profile'
+    | '/admin/'
+    | '/app/'
+    | '/app/product/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  AppRouteRoute: typeof AppRouteRouteWithChildren
   OtpRoute: typeof OtpRoute
 }
 
@@ -58,6 +243,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OtpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,13 +264,162 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/orders': {
+      id: '/app/orders'
+      path: '/orders'
+      fullPath: '/app/orders'
+      preLoaderRoute: typeof AppOrdersRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/emis': {
+      id: '/app/emis'
+      path: '/emis'
+      fullPath: '/app/emis'
+      preLoaderRoute: typeof AppEmisRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/checkout': {
+      id: '/app/checkout'
+      path: '/checkout'
+      fullPath: '/app/checkout'
+      preLoaderRoute: typeof AppCheckoutRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/categories': {
+      id: '/app/categories'
+      path: '/categories'
+      fullPath: '/app/categories'
+      preLoaderRoute: typeof AppCategoriesRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/cart': {
+      id: '/app/cart'
+      path: '/cart'
+      fullPath: '/app/cart'
+      preLoaderRoute: typeof AppCartRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/orders': {
+      id: '/admin/orders'
+      path: '/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AdminOrdersRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/emis': {
+      id: '/admin/emis'
+      path: '/emis'
+      fullPath: '/admin/emis'
+      preLoaderRoute: typeof AdminEmisRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/app/product/$id': {
+      id: '/app/product/$id'
+      path: '/product/$id'
+      fullPath: '/app/product/$id'
+      preLoaderRoute: typeof AppProductIdRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminEmisRoute: typeof AdminEmisRoute
+  AdminOrdersRoute: typeof AdminOrdersRoute
+  AdminProductsRoute: typeof AdminProductsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminEmisRoute: AdminEmisRoute,
+  AdminOrdersRoute: AdminOrdersRoute,
+  AdminProductsRoute: AdminProductsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
+interface AppRouteRouteChildren {
+  AppCartRoute: typeof AppCartRoute
+  AppCategoriesRoute: typeof AppCategoriesRoute
+  AppCheckoutRoute: typeof AppCheckoutRoute
+  AppEmisRoute: typeof AppEmisRoute
+  AppOrdersRoute: typeof AppOrdersRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppProductIdRoute: typeof AppProductIdRoute
+}
+
+const AppRouteRouteChildren: AppRouteRouteChildren = {
+  AppCartRoute: AppCartRoute,
+  AppCategoriesRoute: AppCategoriesRoute,
+  AppCheckoutRoute: AppCheckoutRoute,
+  AppEmisRoute: AppEmisRoute,
+  AppOrdersRoute: AppOrdersRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppProductIdRoute: AppProductIdRoute,
+}
+
+const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
+  AppRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
+  AppRouteRoute: AppRouteRouteWithChildren,
   OtpRoute: OtpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
