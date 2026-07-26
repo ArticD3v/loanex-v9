@@ -9,32 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OtpRouteImport } from './routes/otp'
-import { Route as AppRouteRouteImport } from './routes/app/route'
-import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as AppRouteRouteImport } from './routes/app/route'
+import { Route as OtpRouteImport } from './routes/otp'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
-import { Route as AppProfileRouteImport } from './routes/app/profile'
-import { Route as AppOrdersRouteImport } from './routes/app/orders'
-import { Route as AppEmisRouteImport } from './routes/app/emis'
-import { Route as AppCheckoutRouteImport } from './routes/app/checkout'
-import { Route as AppCategoriesRouteImport } from './routes/app/categories'
-import { Route as AppCartRouteImport } from './routes/app/cart'
-import { Route as AdminUsersRouteImport } from './routes/admin/users'
-import { Route as AdminProductsRouteImport } from './routes/admin/products'
-import { Route as AdminOrdersRouteImport } from './routes/admin/orders'
 import { Route as AdminEmisRouteImport } from './routes/admin/emis'
+import { Route as AdminOrdersRouteImport } from './routes/admin/orders'
+import { Route as AdminProductsRouteImport } from './routes/admin/products'
+import { Route as AdminUsersRouteImport } from './routes/admin/users'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppCartRouteImport } from './routes/app/cart'
+import { Route as AppCategoriesRouteImport } from './routes/app/categories'
+import { Route as AppCheckoutRouteImport } from './routes/app/checkout'
+import { Route as AppEmisRouteImport } from './routes/app/emis'
+import { Route as AppOrdersRouteImport } from './routes/app/orders'
+import { Route as AppProfileRouteImport } from './routes/app/profile'
 import { Route as AppProductIdRouteImport } from './routes/app/product.$id'
 
-const OtpRoute = OtpRouteImport.update({
-  id: '/otp',
-  path: '/otp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppRouteRoute = AppRouteRouteImport.update({
-  id: '/app',
-  path: '/app',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRouteRoute = AdminRouteRouteImport.update({
@@ -42,59 +37,24 @@ const AdminRouteRoute = AdminRouteRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AppRouteRoute = AppRouteRouteImport.update({
+  id: '/app',
+  path: '/app',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppIndexRoute = AppIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AppRouteRoute,
+const OtpRoute = OtpRouteImport.update({
+  id: '/otp',
+  path: '/otp',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-const AppProfileRoute = AppProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AppOrdersRoute = AppOrdersRouteImport.update({
-  id: '/orders',
-  path: '/orders',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AppEmisRoute = AppEmisRouteImport.update({
+const AdminEmisRoute = AdminEmisRouteImport.update({
   id: '/emis',
   path: '/emis',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AppCheckoutRoute = AppCheckoutRouteImport.update({
-  id: '/checkout',
-  path: '/checkout',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AppCategoriesRoute = AppCategoriesRouteImport.update({
-  id: '/categories',
-  path: '/categories',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AppCartRoute = AppCartRouteImport.update({
-  id: '/cart',
-  path: '/cart',
-  getParentRoute: () => AppRouteRoute,
-} as any)
-const AdminUsersRoute = AdminUsersRouteImport.update({
-  id: '/users',
-  path: '/users',
-  getParentRoute: () => AdminRouteRoute,
-} as any)
-const AdminProductsRoute = AdminProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
   getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminOrdersRoute = AdminOrdersRouteImport.update({
@@ -102,10 +62,50 @@ const AdminOrdersRoute = AdminOrdersRouteImport.update({
   path: '/orders',
   getParentRoute: () => AdminRouteRoute,
 } as any)
-const AdminEmisRoute = AdminEmisRouteImport.update({
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppCartRoute = AppCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppCategoriesRoute = AppCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppCheckoutRoute = AppCheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppEmisRoute = AppEmisRouteImport.update({
   id: '/emis',
   path: '/emis',
-  getParentRoute: () => AdminRouteRoute,
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppOrdersRoute = AppOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRouteRoute,
 } as any)
 const AppProductIdRoute = AppProductIdRouteImport.update({
   id: '/product/$id',
@@ -236,18 +236,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/otp': {
-      id: '/otp'
-      path: '/otp'
-      fullPath: '/otp'
-      preLoaderRoute: typeof OtpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/app': {
-      id: '/app'
-      path: '/app'
-      fullPath: '/app'
-      preLoaderRoute: typeof AppRouteRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -257,19 +250,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/app/': {
-      id: '/app/'
-      path: '/'
-      fullPath: '/app/'
-      preLoaderRoute: typeof AppIndexRouteImport
-      parentRoute: typeof AppRouteRoute
+    '/otp': {
+      id: '/otp'
+      path: '/otp'
+      fullPath: '/otp'
+      preLoaderRoute: typeof OtpRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin/': {
       id: '/admin/'
@@ -278,60 +271,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRouteRoute
     }
-    '/app/profile': {
-      id: '/app/profile'
-      path: '/profile'
-      fullPath: '/app/profile'
-      preLoaderRoute: typeof AppProfileRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/app/orders': {
-      id: '/app/orders'
-      path: '/orders'
-      fullPath: '/app/orders'
-      preLoaderRoute: typeof AppOrdersRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/app/emis': {
-      id: '/app/emis'
+    '/admin/emis': {
+      id: '/admin/emis'
       path: '/emis'
-      fullPath: '/app/emis'
-      preLoaderRoute: typeof AppEmisRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/app/checkout': {
-      id: '/app/checkout'
-      path: '/checkout'
-      fullPath: '/app/checkout'
-      preLoaderRoute: typeof AppCheckoutRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/app/categories': {
-      id: '/app/categories'
-      path: '/categories'
-      fullPath: '/app/categories'
-      preLoaderRoute: typeof AppCategoriesRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/app/cart': {
-      id: '/app/cart'
-      path: '/cart'
-      fullPath: '/app/cart'
-      preLoaderRoute: typeof AppCartRouteImport
-      parentRoute: typeof AppRouteRoute
-    }
-    '/admin/users': {
-      id: '/admin/users'
-      path: '/users'
-      fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRouteRoute
-    }
-    '/admin/products': {
-      id: '/admin/products'
-      path: '/products'
-      fullPath: '/admin/products'
-      preLoaderRoute: typeof AdminProductsRouteImport
+      fullPath: '/admin/emis'
+      preLoaderRoute: typeof AdminEmisRouteImport
       parentRoute: typeof AdminRouteRoute
     }
     '/admin/orders': {
@@ -341,12 +285,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminOrdersRouteImport
       parentRoute: typeof AdminRouteRoute
     }
-    '/admin/emis': {
-      id: '/admin/emis'
-      path: '/emis'
-      fullPath: '/admin/emis'
-      preLoaderRoute: typeof AdminEmisRouteImport
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
       parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/cart': {
+      id: '/app/cart'
+      path: '/cart'
+      fullPath: '/app/cart'
+      preLoaderRoute: typeof AppCartRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/categories': {
+      id: '/app/categories'
+      path: '/categories'
+      fullPath: '/app/categories'
+      preLoaderRoute: typeof AppCategoriesRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/checkout': {
+      id: '/app/checkout'
+      path: '/checkout'
+      fullPath: '/app/checkout'
+      preLoaderRoute: typeof AppCheckoutRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/emis': {
+      id: '/app/emis'
+      path: '/emis'
+      fullPath: '/app/emis'
+      preLoaderRoute: typeof AppEmisRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/orders': {
+      id: '/app/orders'
+      path: '/orders'
+      fullPath: '/app/orders'
+      preLoaderRoute: typeof AppOrdersRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRouteRoute
     }
     '/app/product/$id': {
       id: '/app/product/$id'
@@ -413,3 +413,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
